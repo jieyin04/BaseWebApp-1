@@ -1,20 +1,103 @@
+@import url('https://fonts.googleapis.com/css?family=Anonymous+Pro|Roboto+Mono&display=swap');
 
 body {
-  background-color: #d0e4fe;
-  text-align: center;
+ 	background-color: #AFC315;
+ 	font-family: 'Anonymous Pro', sans-serif;
 }
+
+.body-container {
+	background-color: #E5DFB9;
+	padding: 25px 0;
+}
+
+.content {
+	width: 70%;
+	margin: 0 auto;
+	border: 5px solid #C4B8AA;
+	border-radius: 15px;
+	background-color: white;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	text-transform: uppercase;
+	font-size: 20px;
+}
+
+
+.information {
+	width: 56%;
+	margin: 2%;
+	padding: 25px 0 25px 25px;
+}
+
+.image {
+	width: 36%;
+	margin: 2%;
+	text-align: center;
+}
+
+.image img {
+	width: 100%;
+}
+
+.inline {
+	display: inline;
+}
+
+.description {
+	text-transform: initial;
+	width: 100%;
+	margin: 2%;
+	padding: 25px;
+	background-color: #E9DCC4;
+}
+
+.controls {
+	width: 68%;
+	margin: 0 auto;
+	padding-top: 25px;
+	text-transform: uppercase;
+	font-size: 16px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+.button {
+	width: 40%;
+}
+
+.input {
+	width: 52%;
+	margin-left: 8%;
+}
+
+button {
+	background-color: white;
+	border-radius: 25px;
+}
+
+.guess {
+	width: 100%;
+	padding-bottom: 25px;
+}
+
+input {
+	border-radius: 25px;
+	max-width: 200px;
+	padding-left: 5px;
+}
+/*FONTS*/
 
 h1 {
-  font-family: 'Lobster', cursive;
-  color: orange;
+	text-transform: uppercase;
+	text-align: center;
 }
 
-p {
-  font-family: "Courier New";
-  font-size: 30px;
+.large {
+	font-size: 24px;
 }
 
-#doge-image img {
-  height: 140px;
-  margin-top: 20px;
+.caps {
+	text-transform: uppercase!important;
 }

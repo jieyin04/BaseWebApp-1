@@ -5,21 +5,61 @@
 
 <body>
 
-  <!-- the classes 'page-header' and 'btn btn-default' create bootstrap components.  -->
-  <!-- Check out more components here: http://getbootstrap.com/components/ -->
-  <div class="page-header">
-    <h1>MY WEB APP</h1>
+    <h1 >Who's that Pokémon?</h1>
+
+    <div class="body-container">
+
+    <div class="content">
+      <div class="information">
+        <p class="pokemon_ID inline large">No.???</p>
+        <p class="pokemon_NAME inline large">???</p>
+        <br>
+        <p class="pokemon_SPECIES">??? Pokémon</p>
+        <p class="height inline">HT</p>
+        <p class="pokemon_HEIGHT inline">???</p>
+        <br>
+        <p class="weight inline">WT</p>
+        <p class="pokemon_WEIGHT inline">???</p>
+      </div>
+      <div class="image"></div>
+      <div class="description">
+        <p class="inline">This Pokémon's ability is</p>
+        <p class="ability inline caps">???</p>
+        <p class="inline">and can use</p> 
+        <p class="moveset inline caps"></p> 
+        <p class="inline">on its opponents.</p> 
+      </div>
+    </div>
+
   </div>
 
-  <p id="demo">
-    This is me testing out a lil html file
-  </p>
+   <div class="controls">
+      <div class="guess">
+        <p class="inline" style="color: white;">Who's that Pokémon?</p>
+        <input type="text" placeholder="Enter Pokémon Name" id="myGuess">
+      </div>
 
-  <button class="btn btn-default" type="button" onclick="myFunction()">
-    Try it
-  </button>
+      <div>
+        <button class="inline" type="button" onclick="refresh()">
+          START
+        </button>
+        <p class="inline" style="color: white;">Get new Pokémon</p>
+      </div>
 
-  <div id="doge-image"/>
+      <div>
+        <button class="inline" type="button" onclick="checkGuess()">
+          A
+        </button>
+        <p class="inline" style="color: white;">Submit guess</p>
+      </div>
+
+      <div>
+        <button class="inline" type="button">
+          B
+        </button>
+        <p class="inline" style="color: white;">Give Up</p>
+      </div>
+    </div>
 
 </body>
 

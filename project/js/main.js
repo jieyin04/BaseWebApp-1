@@ -15,7 +15,7 @@ var pokemonA;
 	getPokemonA(pokemonA);
 	$(".answer").hide();
 	$(".unknown").show();
-	$("#myGuess").val("");
+	$("#playerGuess").val("");
 }
 
 function getPokemonA(pokemonA){
@@ -56,7 +56,7 @@ function reveal() {
 }
 
 function checkGuess () {
-	var playerGuess = $("#myGuess").val();	
+	var playerGuess = $("#playerGuess").val();	
 	var lcGuess = playerGuess.toLowerCase();
 	console.log(lcGuess);
 	console.log($(".pokemon_NAME").text());
@@ -64,10 +64,10 @@ function checkGuess () {
 	if (lcGuess === $(".pokemon_NAME").text()){
 		$(".unknown").hide();
 		$(".answer").show();
-		$("#myGuess").val("");
+		$("#playerGuess").val("");
 		$(".results").text("that's right!");
 	} else {
-		$("#myGuess").val("");
+		$("#playerGuess").val("");
 		$(".results").text("please try again");
 	}
  }

@@ -3,25 +3,31 @@
 //       console.log(response);
 //     });
 
-
- function refresh(){
-	var pokemonA = Math.floor((Math.random() * 151) + 1);
-	getPokemonA(pokemonA);
-}
+var pokemonA;
 
  $(document).ready(function (){
  	refresh();
 })
+
+
+ function refresh(){
+	var pokemonA = Math.floor((Math.random() * 151) + 1);
+	getPokemonA(pokemonA);
+	$(".answer").hide();
+	$(".unknown").show();
+	$("#myGuess").val("");
+}
 
 function getPokemonA(pokemonA){
 
 	P.getPokemonByName(pokemonA) // with Promise
     .then(function(response) {
       console.log(response);
+      console.log(response.name);
       
-      // $(".pokemon_ID").text("No."+response.id);
-      // $(".pokemon_NAME").text(response.name);
-      // $(".image").html("<img src='"+response.sprites.front_default+"'>")
+      $(".pokemon_ID").text("No."+response.id);
+      $(".pokemon_NAME").text(response.name);
+      $(".pokemon_IMAGE").html("<img src='"+response.sprites.front_default+"'>")
       
       if (response.types.length === 1) {
       	$(".pokemon_SPECIES").text(response.types[0].type.name +" Pokémon");
@@ -32,7 +38,9 @@ function getPokemonA(pokemonA){
       
 	  $(".pokemon_HEIGHT").text(response.height*10 +" cm");
       $(".pokemon_WEIGHT").text(response.weight/10 + ' kg');
-      $(".ability").text(response.abilities[0].ability.name);
+
+      var ability = Math.floor(Math.random() * response.abilities.length);
+      $(".ability").text(response.abilities[ability].ability.name);
 
       var moveset = Math.floor(Math.random() * response.moves.length);
       $(".moveset").text(response.moves[moveset].move.name);
@@ -41,6 +49,29 @@ function getPokemonA(pokemonA){
 
 }
 
-function checkGuess (pokemonA) {	
-	console.log(pokemonA);
-    };
+function reveal() {
+	$(".unknown").hide();
+	$(".answer").show();
+	$(".results").text("Who's that Pokémon?");
+}
+
+function checkGuess () {
+	var playerGuess = $("#myGuess").val();	
+	var lcGuess = playerGuess.toLowerCase();
+	console.log(lcGuess);
+	console.log($(".pokemon_NAME").text());
+
+	if (lcGuess === $(".pokemon_NAME").text()){
+		$(".unknown").hide();
+		$(".answer").show();
+		$("#myGuess").val("");
+		$(".results").text("that's right!");
+	} else {
+		$("#myGuess").val("");
+		$(".results").text("please try again");
+	}
+ }
+
+
+
+

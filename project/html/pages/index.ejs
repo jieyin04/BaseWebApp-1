@@ -5,14 +5,16 @@
 
 <body>
 
-    <h1 >Who's that Pokémon?</h1>
+    <h1 class="results">Who's that Pokémon?</h1>
 
     <div class="body-container">
 
     <div class="content">
       <div class="information">
-        <p class="pokemon_ID inline large">No.???</p>
-        <p class="pokemon_NAME inline large">???</p>
+        <p class="unknown inline large">No.???</p>
+        <p class="answer pokemon_ID inline large">No.???</p>
+        <p class="unknown inline large">???</p>
+        <p class="answer pokemon_NAME inline large">???</p>
         <br>
         <p class="pokemon_SPECIES">??? Pokémon</p>
         <p class="height inline">HT</p>
@@ -21,7 +23,8 @@
         <p class="weight inline">WT</p>
         <p class="pokemon_WEIGHT inline">???</p>
       </div>
-      <div class="image"></div>
+      <div class="image unknown"><img src="/images/question-mark.png"></div>
+      <div class="image answer pokemon_IMAGE"></div>
       <div class="description">
         <p class="inline">This Pokémon's ability is</p>
         <p class="ability inline caps">???</p>
@@ -51,10 +54,8 @@
           A
         </button>
         <p class="inline" style="color: white;">Submit guess</p>
-      </div>
 
-      <div>
-        <button class="inline" type="button">
+        <button class="inline" type="button" onclick="reveal()">
           B
         </button>
         <p class="inline" style="color: white;">Give Up</p>

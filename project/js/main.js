@@ -75,7 +75,7 @@ function reveal() {
 
 function checkGuess () {
 	var playerGuess = $("#playerGuess").val();	
-	var lcGuess = playerGuess.toLowerCase();
+	var lcGuess = playerGuess.replace(/\s+/g, '-').toLowerCase();
 	console.log(lcGuess);
 	console.log($(".pokemon_NAME").text());
 

@@ -14,7 +14,7 @@ var pokemonA;
 	var pokemonA = Math.floor((Math.random() * 151) + 1);
 	getPokemonA(pokemonA);
 	$(".answer").hide();
-	$(".newhint").hide();
+	$(".newhint_2").hide();
 	$(".unknown").show();
 	$("#playerGuess").val("");
 	$("#buttonA").attr("disabled", false);
@@ -36,7 +36,7 @@ function getPokemonA(pokemonA){
       } else {
       	$(".pokemon_NAME").text(response.name);
       }
-      
+
       $(".pokemon_IMAGE").html("<img src='"+response.sprites.front_default+"'>")
       
       if (response.types.length === 1) {
@@ -88,7 +88,7 @@ function checkGuess () {
 		$("#buttonB").attr("disabled", true);
 	} else {
 		$("#playerGuess").val("");
-		$(".newhint").show();
+		$(".newhint_2").show();
 		$(".results").text("please try again");
 	}
  }
@@ -96,9 +96,11 @@ function checkGuess () {
 $(document).keypress(function(event){
                 var keycode = (event.keyCode ? event.keyCode : event.which);
                 if(keycode == '13'){
-                	if ($("#playerGuess").val()) {
+                	if ($("#playerGuess").val() && $("#playerGuess").val() !== "") {
                 		checkGuess (); 
                 		event.preventDefault();
-                	}                  
+                	}  else {
+                		event.preventDefault();
+                	}                
                 }
             });

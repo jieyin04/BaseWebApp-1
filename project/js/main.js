@@ -30,7 +30,13 @@ function getPokemonA(pokemonA){
       console.log(response.name);
       
       $(".pokemon_ID").text("No."+response.id);
-      $(".pokemon_NAME").text(response.name);
+
+      if (response.name === "nidoran-f" || response.name === "nidoran-m"){
+      	$(".pokemon_NAME").text("nidoran");
+      } else {
+      	$(".pokemon_NAME").text(response.name);
+      }
+      
       $(".pokemon_IMAGE").html("<img src='"+response.sprites.front_default+"'>")
       
       if (response.types.length === 1) {

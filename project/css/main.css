@@ -68,6 +68,9 @@ body {
 	width: 40%;
 }
 
+button[disabled], html input[disabled] {
+	background-color: #D3D3D3;
+}
 .input {
 	width: 52%;
 	margin-left: 8%;

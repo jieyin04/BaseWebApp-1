@@ -14,8 +14,12 @@ var pokemonA;
 	var pokemonA = Math.floor((Math.random() * 151) + 1);
 	getPokemonA(pokemonA);
 	$(".answer").hide();
+	$(".newhint").hide();
 	$(".unknown").show();
 	$("#playerGuess").val("");
+	$("#buttonA").attr("disabled", false);
+	$("#buttonB").attr("disabled", false);
+	$(".results").text("Who's that Pokémon?");
 }
 
 function getPokemonA(pokemonA){
@@ -45,6 +49,12 @@ function getPokemonA(pokemonA){
       var moveset = Math.floor(Math.random() * response.moves.length);
       $(".moveset").text(response.moves[moveset].move.name);
 
+      var moveset_two = Math.floor(Math.random() * response.moves.length);
+      if (moveset_two === moveset) {
+      	moveset_two = Math.floor(Math.random() * response.moves.length);
+      }
+      $(".moveset_2").text(response.moves[moveset_two].move.name);
+
     });
 
 }
@@ -52,7 +62,9 @@ function getPokemonA(pokemonA){
 function reveal() {
 	$(".unknown").hide();
 	$(".answer").show();
-	$(".results").text("Who's that Pokémon?");
+	$(".results").text("better luck next time");
+	$("#buttonA").attr("disabled", true);
+	$("#buttonB").attr("disabled", true);
 }
 
 function checkGuess () {
@@ -66,8 +78,11 @@ function checkGuess () {
 		$(".answer").show();
 		$("#playerGuess").val("");
 		$(".results").text("that's right!");
+		$("#buttonA").attr("disabled", true);
+		$("#buttonB").attr("disabled", true);
 	} else {
 		$("#playerGuess").val("");
+		$(".newhint").show();
 		$(".results").text("please try again");
 	}
  }

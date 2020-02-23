@@ -24,8 +24,8 @@ function getPokemonA(pokemonA){
 
 	P.getPokemonByName(pokemonA) // with Promise
     .then(function(response) {
-      console.log(response);
-      console.log(response.name);
+      // console.log(response);
+      // console.log(response.name);
       
       $(".pokemon_ID").text("No."+response.id);
 
@@ -74,8 +74,8 @@ function reveal() {
 function checkGuess () {
 	var playerGuess = $("#playerGuess").val();	
 	var lcGuess = playerGuess.replace(/\s+/g, '-').toLowerCase();
-	console.log(lcGuess);
-	console.log($(".pokemon_NAME").text());
+	// console.log(lcGuess);
+	// console.log($(".pokemon_NAME").text());
 
 	if (lcGuess === $(".pokemon_NAME").text()){
 		$(".unknown").hide();

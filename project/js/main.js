@@ -3,8 +3,6 @@
 //       console.log(response);
 //     });
 
-var pokemonA;
-
  $(document).ready(function (){
  	refresh();
 })
@@ -83,7 +81,7 @@ function checkGuess () {
 		$(".unknown").hide();
 		$(".answer").show();
 		$("#playerGuess").val("");
-		$(".results").text("that's right!");
+		$(".results").text("🎉 that's right! 🎉");
 		$("#buttonA").attr("disabled", true);
 		$("#buttonB").attr("disabled", true);
 	} else {

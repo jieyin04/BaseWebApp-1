@@ -81,7 +81,7 @@ function checkGuess () {
 	// console.log(lcGuess);
 	// console.log($(".pokemon_NAME").text());
 
-	if (lcGuess = $(".pokemon_NAME").text()){
+	if (lcGuess == $(".pokemon_NAME").text()){
 		$("#guess-form").hide();
 		$(".unknown").hide();
 		$(".answer").show();

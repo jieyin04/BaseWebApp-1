@@ -1,4 +1,4 @@
-<html lang="en">
+<html>
 <head>
     <% include ../helpers/head %>
 </head>
@@ -39,10 +39,11 @@
 
   </div>
 
-   <div class="controls">
-      <form class="guess">
-        <p class="inline" style="color: white;">Who's that Pokémon?</p>
-        <input type="text" placeholder="Enter Pokémon Name" id="playerGuess" autocomplete="off">
+   <div class="controls" id="control-panel">
+      <form class="guess" id="guess-form">
+
+        <select display="none" id="playerSelect" data-live-search="true"  title="Guess the Pokémon" class="form-control selectpicker"></select>
+
       </form>
 
       <div>

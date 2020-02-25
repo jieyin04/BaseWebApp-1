@@ -3,6 +3,7 @@
 //       console.log(response);
 //     });
 
+
  $(document).ready(function (){
  	refresh();
 })
@@ -14,7 +15,8 @@
 	$(".answer").hide();
 	$(".newhint_2").hide();
 	$(".unknown").show();
-	$("#playerGuess").val("");
+	$("#guess-form").show();
+	$(".filter-option-inner-inner")[0].innerText = "Guess the Pokémon";
 	$("#buttonA").attr("disabled", false);
 	$("#buttonB").attr("disabled", false);
 	$(".results").text("Who's that Pokémon?");
@@ -25,7 +27,7 @@ function getPokemonA(pokemonA){
 	P.getPokemonByName(pokemonA) // with Promise
     .then(function(response) {
       // console.log(response);
-      // console.log(response.name);
+      console.log(response.name);
       
       $(".pokemon_ID").text("No."+response.id);
 
@@ -69,18 +71,20 @@ function reveal() {
 	$(".results").text("better luck next time");
 	$("#buttonA").attr("disabled", true);
 	$("#buttonB").attr("disabled", true);
+	$("#guess-form").hide();
 }
 
 function checkGuess () {
-	var playerGuess = $("#playerGuess").val();	
-	var lcGuess = playerGuess.replace(/\s+/g, '-').toLowerCase();
+	// var playerGuess = $("#playerGuess").val();	
+	var lcGuess = $(".filter-option-inner-inner")[0].innerText
+	// var lcGuess = playerGuess.replace(/\s+/g, '-').toLowerCase();
 	// console.log(lcGuess);
 	// console.log($(".pokemon_NAME").text());
 
-	if (lcGuess === $(".pokemon_NAME").text()){
+	if (lcGuess = $(".pokemon_NAME").text()){
+		$("#guess-form").hide();
 		$(".unknown").hide();
 		$(".answer").show();
-		$("#playerGuess").val("");
 		$(".results").text("🎉 that's right! 🎉");
 		$("#buttonA").attr("disabled", true);
 		$("#buttonB").attr("disabled", true);
@@ -88,17 +92,33 @@ function checkGuess () {
 		$("#playerGuess").val("");
 		$(".newhint_2").show();
 		$(".results").text("please try again");
+		$(".filter-option-inner-inner")[0].innerText = "Guess the Pokémon";
 	}
  }
 
-$(document).keypress(function(event){
-                var keycode = (event.keyCode ? event.keyCode : event.which);
-                if(keycode == '13'){
-                	if ($("#playerGuess").val() && $("#playerGuess").val() !== "") {
-                		checkGuess (); 
-                		event.preventDefault();
-                	}  else {
-                		event.preventDefault();
-                	}                
-                }
-            });
+// $(document).keypress(function(event){
+
+//                 var keycode = (event.keyCode ? event.keyCode : event.which);
+//                 if(keycode == '13'){
+//                 	if ($(".filter-option-inner-inner")[0].innerText = "Guess the Pokémon") {
+//                 		console.log("YES");
+//                 	}	else {
+//                 		checkGuess();
+//                 		console.log("NO");
+//                 	}                
+//                 }
+//             });
+
+
+$.get('https://pokeapi.co/api/v2/pokemon?limit=151',function(all){
+	console.log(all);
+	console.log(all.results[0].name);
+
+	for (i=0; i<151; i++) {
+		var option = document.createElement("option");
+		option.appendChild(document.createTextNode(all.results[i].name));
+		option.value = all.results[i].name;
+		document.getElementById("playerSelect").appendChild(option);
+	}
+})
+

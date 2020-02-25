@@ -71,10 +71,6 @@ body {
 button[disabled], html input[disabled] {
 	background-color: #D3D3D3;
 }
-.input {
-	width: 52%;
-	margin-left: 8%;
-}
 
 button {
 	background-color: white;
@@ -86,11 +82,15 @@ button {
 	padding-bottom: 25px;
 }
 
-input {
-	border-radius: 25px;
-	max-width: 200px;
-	padding-left: 5px;
+div[role=combobox]{
+	transform: none!important;
+	text-transform: capitalize;
 }
+
+.bootstrap-select .dropdown-toggle .filter-option-inner-inner {
+	text-transform: capitalize;
+}
+
 /*FONTS*/
 
 h1 {

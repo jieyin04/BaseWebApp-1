@@ -108,11 +108,8 @@ h1 {
 
 /*MEDIA QUERIES*/
 
-@media (min-width: 576px) {  
  
-}
- 
-@media (min-width: 768px) {  
+@media (max-width: 768px) {  
 
 	.content, .large {
 		width: 90%;
@@ -143,14 +140,6 @@ h1 {
  
 }
  
-@media (min-width: 992px) { 
- 
-}
- 
-@media (min-width: 1200px) {  
-    
-}
-
 
 
 

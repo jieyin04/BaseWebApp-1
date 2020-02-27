@@ -23,7 +23,6 @@ body {
 	font-size: 20px;
 }
 
-
 .information {
 	width: 56%;
 	margin: 2%;
@@ -105,3 +104,63 @@ h1 {
 .caps {
 	text-transform: uppercase!important;
 }
+
+
+/*MEDIA QUERIES*/
+
+@media (min-width: 576px) {  
+ 
+}
+ 
+@media (min-width: 768px) {  
+
+	.content, .large {
+		width: 90%;
+		font-size: 36px;
+	}
+
+	.controls {
+		width: 90%;
+		font-size: 28px;
+	}
+
+	button {
+		padding: 15px 25px;
+		border-radius: 50%;
+	}
+
+	select, .filter-option-inner-inner, .dropdown-menu {
+		font-size: 28px!important;
+	}
+
+	.form-control {
+		padding: 25px 0!important;
+	}
+
+	.bootstrap-select .dropdown-toggle .filter-option {
+		top: -25;
+	}
+ 
+}
+ 
+@media (min-width: 992px) { 
+ 
+}
+ 
+@media (min-width: 1200px) {  
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

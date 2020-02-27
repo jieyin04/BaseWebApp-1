@@ -16,7 +16,7 @@
 	$(".newhint_2").hide();
 	$(".unknown").show();
 	$("#guess-form").show();
-	$(".filter-option-inner-inner")[0].innerText = "Guess the Pokémon";
+	$("#playerGuess").val() = "";
 	$("#buttonA").attr("disabled", false);
 	$("#buttonB").attr("disabled", false);
 	$(".results").text("Who's that Pokémon?");
@@ -75,11 +75,12 @@ function reveal() {
 }
 
 function checkGuess () {
-	// var playerGuess = $("#playerGuess").val();	
-	var lcGuess = $(".filter-option-inner-inner")[0].innerText
-	// var lcGuess = playerGuess.replace(/\s+/g, '-').toLowerCase();
-	// console.log(lcGuess);
-	// console.log($(".pokemon_NAME").text());
+	 var playerGuess = $("#playerGuess").val();	
+	// var playerGuess = $(".filter-option-inner-inner")[0].innerHTML
+	// var lcGuess = playerGuess.toLowerCase;
+	 var lcGuess = playerGuess.replace(/\s+/g, '-').toLowerCase();
+	 console.log(lcGuess);
+	 console.log($(".pokemon_NAME").text());
 
 	if (lcGuess == $(".pokemon_NAME").text()){
 		$("#guess-form").hide();
@@ -92,33 +93,31 @@ function checkGuess () {
 		$("#playerGuess").val("");
 		$(".newhint_2").show();
 		$(".results").text("please try again");
-		$(".filter-option-inner-inner")[0].innerText = "Guess the Pokémon";
+		$("#playerGuess").val() = "";
 	}
  }
 
-// $(document).keypress(function(event){
+$(document).keypress(function(event){
+                var keycode = (event.keyCode ? event.keyCode : event.which);
+                if(keycode == '13'){
+                	if ($("#playerGuess").val() && $("#playerGuess").val() !== "") {
+                		checkGuess (); 
+                		event.preventDefault();
+                	}  else {
+                		event.preventDefault();
+                	}                
+                }
+            });
 
-//                 var keycode = (event.keyCode ? event.keyCode : event.which);
-//                 if(keycode == '13'){
-//                 	if ($(".filter-option-inner-inner")[0].innerText = "Guess the Pokémon") {
-//                 		console.log("YES");
-//                 	}	else {
-//                 		checkGuess();
-//                 		console.log("NO");
-//                 	}                
-//                 }
-//             });
+// $.get('https://pokeapi.co/api/v2/pokemon?limit=151',function(all){
+// 	console.log(all);
+// 	console.log(all.results[0].name);
 
-
-$.get('https://pokeapi.co/api/v2/pokemon?limit=151',function(all){
-	console.log(all);
-	console.log(all.results[0].name);
-
-	for (i=0; i<151; i++) {
-		var option = document.createElement("option");
-		option.appendChild(document.createTextNode(all.results[i].name));
-		option.value = all.results[i].name;
-		document.getElementById("playerSelect").appendChild(option);
-	}
-})
+// 	for (i=0; i<151; i++) {
+// 		var option = document.createElement("option");
+// 		option.appendChild(document.createTextNode(all.results[i].name));
+// 		option.value = all.results[i].name;
+// 		document.getElementById("playerSelect").appendChild(option);
+// 	}
+// })
 

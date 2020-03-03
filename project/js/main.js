@@ -16,7 +16,7 @@
 	$(".newhint_2").hide();
 	$(".unknown").show();
 	$("#guess-form").show();
-	$("#playerGuess").val() = "";
+	$("#playerGuess").val("");
 	$("#buttonA").attr("disabled", false);
 	$("#buttonB").attr("disabled", false);
 	$(".results").text("Who's that Pokémon?");
@@ -93,7 +93,6 @@ function checkGuess () {
 		$("#playerGuess").val("");
 		$(".newhint_2").show();
 		$(".results").text("please try again");
-		$("#playerGuess").val() = "";
 	}
  }
 
@@ -104,7 +103,7 @@ $(document).keypress(function(event){
                 		checkGuess (); 
                 		event.preventDefault();
                 	}  else {
-                		event.preventDefault();
+                		// event.preventDefault();
                 	}                
                 }
             });
